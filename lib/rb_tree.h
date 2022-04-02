@@ -456,7 +456,7 @@ namespace stl
             y->parent = x->parent;
             // 另 y 完全代替 x，必须将 x 的所有关系都弄过来
             if (x == root)
-                root == y;
+                root = y;
             else if (x == x->parent->left)
                 x->parent->left = y;
             else

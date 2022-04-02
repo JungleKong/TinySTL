@@ -6,7 +6,7 @@
 #include <ctime>
 #include <string>
 
-#include "../lib/vector.h"
+#include "lib/vector.h"
 #include "test_utils.h"
 
 namespace stl

@@ -421,7 +421,7 @@ namespace stl
                             cur->next = next->next;
                             destroy_node(next);
                             --_num_element;
-                            return res == end() ? end() : ++res;;
+                            return res == end() ? end() : ++res;
                         } else {
                             cur = next;
                             next = cur->next;

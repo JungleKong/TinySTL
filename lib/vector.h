@@ -87,7 +87,7 @@ namespace stl
             _end_of_storage = _start + new_cap;
         }
         size_type capacity() const { return static_cast<size_type>(_end_of_storage - begin()); }
-        constexpr void shrink_to_fit() {
+        void shrink_to_fit() {
             data_allocator::deallocate(_finish, _end_of_storage - _finish);  // 释放没有用的空间
             _end_of_storage = _finish;
             // 也可以采用重新申请内存的方式，不过应该效率不高
@@ -101,7 +101,7 @@ namespace stl
         /*****************************************************************************/
         // 与修改相关-modify
         /*****************************************************************************/
-        constexpr void clear() noexcept {
+        void clear() noexcept {
             stl::destroy(_start, _finish);
             _finish = _start;
         }
@@ -114,11 +114,12 @@ namespace stl
             }
         }
 
-        iterator insert(iterator pos, const_reference value) {insert_aux(pos, 1, value); }
-        iterator insert(iterator pos, size_type n, const_reference value) {insert_aux(pos, n, value); }
+        // 先使用空返回值的形式, 
+        void insert(iterator pos, const_reference value) {insert_aux(pos, 1, value); }
+        void insert(iterator pos, size_type n, const_reference value) {insert_aux(pos, n, value); }
 
         template<class InputIterator>
-        iterator insert(iterator pos, InputIterator first, InputIterator last) {insert_aux(pos, first, last); }
+        void insert(iterator pos, InputIterator first, InputIterator last) {insert_aux(pos, first, last); }
 
 
         iterator erase(const_iterator pos) {

@@ -1,7 +1,7 @@
 #ifndef KTINYSTL_UNINITIALIZED_H
 #define KTINYSTL_UNINITIALIZED_H
 
-#include <new.h>
+#include <new>
 #include <cstring>
 
 #include "type_traits.h"
