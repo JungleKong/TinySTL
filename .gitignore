@@ -1,2 +1,5 @@
 cmake-build-debug/*
 idea/*
+id_rsa
+id_rsa.pub
+.idea/*

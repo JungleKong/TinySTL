@@ -40,7 +40,7 @@ namespace stl
         for (auto val: ht) {
             std::cout << val << " ";
         }
-        std::cout << ht.size() << std::endl;
+        std::cout << "size: " << ht.size() << std::endl;
     }
 
 

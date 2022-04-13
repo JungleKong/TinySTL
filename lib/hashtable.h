@@ -73,8 +73,9 @@ namespace stl
             return temp;
         }
 
-        bool operator==(iterator& it) {return cur == it.cur; }
-        bool operator!=(iterator& it) {return cur != it.cur; }
+        // TODO // 搞不明白为什么直接传引用（iterator&）不行， 只有传常量引用（const iterator&）或者传值（iterator）才不会编译报错
+        bool operator==(const iterator& it) {return cur == it.cur; }
+        bool operator!=(const self& it) {return cur != it.cur; }
     };
 
 
@@ -373,7 +374,7 @@ namespace stl
             return pii(end(), end());
         }
 
-        size_type erase(const key_type& key) {
+        size_type erase(key_type& key) {
             const size_type n = bkt_num_key(key);
             node* first = _bucket[n];
             size_type  erased = 0;
@@ -404,7 +405,7 @@ namespace stl
             return erased;
         }
 
-        iterator erase(const iterator& it) {
+        iterator erase(iterator& it) {
             iterator res = it;
             if (node* const p = it.cur) {
                 const size_type n = bkt_num(p->val);
@@ -413,7 +414,9 @@ namespace stl
                     _bucket[n] = cur->next;
                     destroy_node(cur);
                     --_num_element;
-                    return res == end() ? end() : ++res;
+                    if (res == end()) return end();
+                    else return ++res;
+                    // return res == end() ? end() : ++res;
                 } else {  // 比较当前桶子后面的元素
                     node* next = cur->next;
                     while (next) {
