@@ -22,6 +22,12 @@ namespace stl{
         typedef Arg2 	second_argument_type;
         typedef Result 	result_type;
     };
+
+    template<class T>
+    struct Identity {
+
+    };
+
 }
 
 

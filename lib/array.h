@@ -76,8 +76,8 @@ namespace stl
         constexpr size_type max_size() const noexcept;  // returns the maximum possible number of elements
 
         // operations
-        constexpr void fill(const value_type& value);
-        constexpr void swap( array& other ) noexcept;
+        void fill(const value_type& value);
+        void swap( array& other ) noexcept;
 
 
     };
@@ -91,7 +91,7 @@ namespace stl
     }
 
     template<class T, size_t num>
-    constexpr const T& array<T, num>::at(size_t pos) const noexcept{
+    constexpr const T& array<T, num>::at(const size_t pos) const noexcept{
         if (pos > size())
             throw std::out_of_range("pos out of range");
         return arr[pos];
@@ -189,13 +189,13 @@ namespace stl
     }
 
     template<class T, size_t num>
-    constexpr void array<T, num>::fill(const value_type &value) {
+    void array<T, num>::fill(const value_type &value) {
         for(int i = 0; i < num; i++)
             *(begin() + i) = value;
     }
 
     template<class T, size_t num>
-    constexpr void array<T, num>::swap(array &other) noexcept {
+    void array<T, num>::swap(array &other) noexcept {
         for (int i = 0; i < num; i++) {
             T temp = *(begin() + i);
             *(begin() + i) = other[i];

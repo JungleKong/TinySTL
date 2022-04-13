@@ -1,5 +1,9 @@
 cmake-build-debug/*
 idea/*
+<<<<<<< HEAD
 id_rsa
 id_rsa.pub
 .idea/*
+=======
+build/*
+>>>>>>> fefebb72f8d894526a01db891ae5e37aacab4b5c

@@ -2,5 +2,6 @@ cmake_minimum_required(VERSION 3.17)
 project(kTinySTL)
 
 set(CMAKE_CXX_STANDARD 14)
+include_directories(${PROJECT_SOURCE_DIR})
 
-add_executable(kTinySTL main.cpp lib/rb_tree.h)
+add_executable(kTinySTL main.cpp)

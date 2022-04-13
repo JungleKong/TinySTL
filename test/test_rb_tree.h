@@ -6,7 +6,7 @@
 #include <functional>
 #include <set>
 
-#include "../lib/rb_tree.h"
+#include "lib/rb_tree.h"
 
 namespace stl
 {
