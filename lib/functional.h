@@ -24,8 +24,14 @@ namespace stl{
     };
 
     template<class T>
-    struct Identity {
+    struct Identity :public unary_function<T, T>{
+        T& operator() (T& t) const {
+            return t;
+        }
 
+        const T& operator() (const T& t) const {
+            return t;
+        }
     };
 
 }
